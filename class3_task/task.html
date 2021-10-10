@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    
+        <label for="rs">Pak rupees</label><br>
+    
+        <input type="Number" id="rs" ><br>
+    
+        <label for="cdl">Converted to dollars</label><br>
+    
+        <textarea name="ct dol" id="cdl" cols="20" rows="1"></textarea><br>
+    
+        <label for="dol">Dollars </label><br>
+    
+        <input type="Number" id="dol"><br>
+    
+        <label for="crs">Converted to Pak rupees</label><br>
+    
+        <textarea name="ct rs" id="crs" cols="20" rows="1"></textarea><br>
+    
+        <button onclick="Convert()">Convert</button><br>
+    
+        <p id="er" style="color: red;"></p><br>
+    
+    </div>
+        <br><br><br><br>    
+    <hr style="border-width: 2px; border-style: solid;">
+    
+    
+    <div>
+       <label for="gd">Check Your Grade (Enter percentage)</label><br>
+       <input type="Number" id="gd"><br><br>
+       <button onclick="Grade()">Check</button><br>
+        <h1 id="result"></h1><br>
+    </div>
+    <br><br><br><br>    
+    <hr style="border-width: 2px; border-style: solid;">
+    
+    
+    <div>
+        <label for="temp">Enter temperature</label><br>
+        <input type="Number" id="temp"><br><br>
+        <button onclick="carry()">Carry jacket or not</button><br>
+        <p id="dcarry" style="color: green;"></p>
+        <p id="carry" style="color: black;"></p>
+        <p id="carry-c" style="color: rgb(129, 48, 48);"></p>
+        <p id="don't" style="color: rgb(243, 14, 14);"></p>
+    </div>
+
+    <script>
+        
+        //currency converter function
+        function Convert(){
+            let p=document.getElementById("rs").value
+            let d=document.getElementById("dol").value
+            let result
+            
+            if (p!="")
+            { 
+                result=Number(p)/170.81
+                document.getElementById("cdl").innerText=result
+            }
+            if (d!=""){
+                result=Number(d)*170.81
+                document.getElementById("crs").innerText=result
+                
+            }
+            if(p==""&&d==""){
+                document.getElementById("er").innerText="Make sure your input is correct"
+            }
+        }
+
+       //Grade checker function
+       function Grade(){
+           let per=document.getElementById("gd").value
+         if ((per>=0) && (per<=100) && (per!="") ) {
+
+           
+             if ((per > 80) || (per == 80) )   {
+
+                 document.getElementById("result").innerText = "Grade A1"
+              }
+             else if ((per >= 70) && (per <= 79)) {
+
+                 document.getElementById("result").innerText = "Grade A"
+              }
+             else if ((per >= 60) && (per <= 69)) {
+
+                 document.getElementById("result").innerText = "Grade B"
+              } 
+             else if (per < 60) {
+
+                 document.getElementById("result").innerText = "Fail"
+              }
+        
+           }
+           else{
+               document.getElementById("result").innerText="Invalid Input"
+           }
+
+
+        }
+
+        //Carry jacket function
+
+        function carry(){
+            let temp=document.getElementById("temp").value
+
+            if (temp>=25){
+                document.getElementById("dcarry").innerText="Don't Carry jacket :)"
+            }
+            else if (temp<25 && temp>15){
+                document.getElementById("carry").innerText="Please Carry jacket !"
+            }
+            else if (temp<=15 && temp>0){
+                document.getElementById("carry-c").innerText="Please Carry coat!"
+            }
+            else if (temp<=0){
+                document.getElementById("don't").innerText="Don't Go Out! :("
+            }
+        }
+    </script>
+</body>
+</html>
