@@ -48,11 +48,8 @@
         <label for="temp">Enter temperature</label><br>
         <input type="Number" id="temp"><br><br>
         <button onclick="carry()">Carry jacket or not</button><br>
-        <p id="dcarry" style="color: green;"></p>
-        <p id="carry" style="color: black;"></p>
-        <p id="carry-c" style="color: rgb(129, 48, 48);"></p>
-        <p id="don't" style="color: rgb(243, 14, 14);"></p>
-    </div>
+        <p id="carry"></p>
+     
 
     <script>
         
@@ -102,7 +99,9 @@
         
            }
            else{
-               document.getElementById("result").innerText="Invalid Input"
+               let out="Invalid Input"
+                   out=out.fontcolor("red")
+               document.getElementById("result").innerHTML=out
            }
 
 
@@ -112,18 +111,31 @@
 
         function carry(){
             let temp=document.getElementById("temp").value
-
+            let out
             if (temp>=25){
-                document.getElementById("dcarry").innerText="Don't Carry jacket :)"
+                out="Don't Carry jacket :)"
+                out=out.fontcolor("green");
+                document.getElementById("carry").innerHTML=out
             }
             else if (temp<25 && temp>15){
-                document.getElementById("carry").innerText="Please Carry jacket !"
+                out="Please Carry jacket !"
+                out=out.fontcolor("black")
+                document.getElementById("carry").innerHTML=out
             }
             else if (temp<=15 && temp>0){
-                document.getElementById("carry-c").innerText="Please Carry coat!"
+                out="Please Carry coat!"
+                out=out.fontcolor("brown")
+                document.getElementById("carry").innerHTML=out
             }
-            else if (temp<=0){
-                document.getElementById("don't").innerText="Don't Go Out! :("
+            else if (temp<=0 && temp!=""){
+                out="Don't Go out! :("
+                out=out.fontcolor("red")
+                document.getElementById("carry").innerHTML=out
+            }
+            else if (temp==""){
+                out="Invalid input"
+                out=out.fontcolor("red")
+                document.getElementById("carry").innerHTML=out
             }
         }
     </script>
