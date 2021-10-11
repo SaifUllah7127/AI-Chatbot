@@ -112,7 +112,7 @@
         function carry(){
             let temp=document.getElementById("temp").value
             let out
-            if (temp>=25){
+            if (temp>=25 && temp<=60){
                 out="Don't Carry jacket :)"
                 out=out.fontcolor("green");
                 document.getElementById("carry").innerHTML=out
@@ -127,12 +127,12 @@
                 out=out.fontcolor("brown")
                 document.getElementById("carry").innerHTML=out
             }
-            else if (temp<=0 && temp!=""){
+            else if (temp<=0 && temp!="" && temp>=-60 ){
                 out="Don't Go out! :("
                 out=out.fontcolor("red")
                 document.getElementById("carry").innerHTML=out
             }
-            else if (temp==""){
+            else if (temp==""|| temp>60 || temp<-60){
                 out="Invalid input"
                 out=out.fontcolor("red")
                 document.getElementById("carry").innerHTML=out
