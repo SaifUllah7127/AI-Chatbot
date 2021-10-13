@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="uname">Username</label>
+    <input type="text" id="uname"><br><br>
+    <label for="pass"> Password</label>
+    <input type="text" id="pass"><br><br>
+    <div>
+    <button onclick="login()">login</button>
+    
+    </div>
+    <p id="msg"></p>
+
+
+    <script>
+        
+        function Create(){
+
+        }
+
+        function login(){
+            let objs=[]
+        let u=document.getElementById("uname").value
+        let p=document.getElementById("pass").value
+
+        let obj1={
+            name:"SAIF",
+            pass:1234
+        }
+        let obj2={
+            name:"ZAID",
+            pass:"abc12"
+        }
+        objs[0]=obj1
+        objs[1]=obj2
+          let e=objs.length
+          
+          for (var a=0;a<e;a++){
+                if(objs[a].name==u){
+                    if(objs[a].pass==p){
+                        
+                        document.getElementById("msg").innerText="Login Successfull :)"
+                        break
+                    }
+                }
+            
+          }
+          if(a==e){
+              document.getElementById("msg").innerText="Login Unsuccessfull :("
+
+          }
+          console.log(a)
+
+        }
+    </script>
+
+</body>
+</html>
