@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter City <br>
+    <input type="text" id="1">
+    <button onclick="get_weather()">check</button><br>
+    <p id="temp"></p>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function get_weather(){
+            const city=document.getElementById("1").value
+
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c81cf13200d1df30ccea5e076e214efa&units=metric`)
+            .then(function(response){
+              console.log(response.data.main.temp)
+              document.getElementById("temp").innerText="Temperature in Celsius is : "+response.data.main.temp
+            })
+        }
+
+    </script>
+</body>
+</html>
